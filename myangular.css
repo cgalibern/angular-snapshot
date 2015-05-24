@@ -1,7 +1,7 @@
 div,p, ul, li {
 	border: 0 solid red;
 	margin: 0 0 0 0;
-	padding: 0 0 0 0; 
+	padding: 0 0 0 0;
 }
 div.header {
 	margin: 10px 0 10px 0;
@@ -11,16 +11,16 @@ div.main {
 	margin: 10px 10px 10px 10px;
 	text-align: center;
 }
-p.doc-p {
+p.snap-p {
 	color: red;
 	margin: 1px 0 0 0;
-	border: 4px solid red;
-	padding: 0 0 0 0; 
+	border: 1px solid red;
+	padding: 0 0 0 0;
 }
 
-li.doc-li {
+li.snap-li {
 	margin: 2px 0 0 0;
-	border: 4px solid blue;
+	border: 1px solid blue;
 	padding: 1 0 0 0;
 	text-align: left;
 }
