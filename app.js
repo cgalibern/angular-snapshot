@@ -15,7 +15,7 @@
     snapshotC.reload();
 
     snapshotC.addSnapshot = function() {
-      $http.post(snapshotC.snapshots_url + ".json", {dbserver:snapshotC.formDbserver, dbname: snapshotC.formDbserver})
+      $http.post(snapshotC.snapshots_url + ".json", {dbserver:snapshotC.formDbserver, dbname: snapshotC.formDbname})
         .success(function(data, status, headers, config) {
           snapshotC.snapshots.push(data);
           console.log("successfully posted snapshot, id=" + data.id);
