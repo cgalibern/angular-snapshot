@@ -2,7 +2,8 @@
 	var app = angular.module('snapshotApp', []);
  	app.controller('SnapshotController', [ '$http', function($http) {
     var snapshotC = this;
-    snapshotC.snapshots_url = "http://localhost:3000/snapshots"
+    //snapshotC.snapshots_url = "http://localhost:3000/snapshots"
+    snapshotC.snapshots_url = "http://192.168.0.16:3000/snapshots"
     snapshotC.snapshots = [];
     snapshotC.showform = false;
     snapshotC.navtab = 1;
@@ -20,6 +21,7 @@
         .success(function(data, status, headers, config) {
           snapshotC.snapshots.push(data);
           console.log("successfully posted snapshot, id=" + data.id);
+          snapshotC.toogleForm();
         })
         .error(function(data, status, headers, config) { console.log("fail to create snapshot") });
 
