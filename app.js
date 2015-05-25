@@ -5,6 +5,7 @@
     snapshotC.snapshots_url = "http://localhost:3000/snapshots"
     snapshotC.snapshots = [];
     snapshotC.showform = false;
+    snapshotC.navtab = 1;
 
     snapshotC.reload = function() {
       $http.get(snapshotC.snapshots_url+".json").success( function(data) {
@@ -45,6 +46,13 @@
       snapshotC.showform && snapshotC.resetFormVars();
     };
 
+    snapshotC.selectTab = function(setTab) {
+      snapshotC.navtab = setTab;
+      };
+    snapshotC.isSelected = function(checkTab) {
+        return snapshotC.navtab === checkTab;
+      };
+
     }]);
 
  	app.directive('snapshotShow', function() {
@@ -67,4 +75,6 @@
       templateUrl: 'snapshot-form.html'
     }
   });
+
+
 })();

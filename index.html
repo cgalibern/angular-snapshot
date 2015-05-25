@@ -7,8 +7,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
     <title>Control center</title>
 
     <!-- Bootstrap core CSS -->
@@ -43,26 +41,29 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Snapshot managment</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li ng-class="{active:snapshotCtrl.isSelected(1)}"><a href="#snapshots" ng-click="snapshotCtrl.selectTab(1)">Snapshot managment</a></li>
+            <li ng-class="{active:snapshotCtrl.isSelected(2)}"><a href="#about" ng-click="snapshotCtrl.selectTab(2)">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container starter-template">
+      <script type="text/javascript" src="vendor-static/angularjs/js/angular.min.js"></script>
+      <script type="text/javascript" src="vendor-static/angularjs/js/angular-resource.min.js"></script>
+      <script type="text/javascript" src="app.js"></script>
 
-			<script type="text/javascript" src="vendor-static/angularjs/js/angular.min.js"></script>
-			<script type="text/javascript" src="vendor-static/angularjs/js/angular-resource.min.js"></script>
-			<script type="text/javascript" src="app.js"></script>
-			<div class="main">
-				<button ng-click="snapshotCtrl.toogleForm()" ng-init="count=0">
-				  {{snapshotCtrl.showform ? "Cancel" : "Declare"}} new snapshot
-				</button>
-				<snapshot-form ng-show="snapshotCtrl.showform">Snapshot form</snapshot-form>
-				<snapshot-list></snapshot-list>
-			</div>
+      <div class="main" ng-show="snapshotCtrl.isSelected(1)">
+        <button ng-click="snapshotCtrl.toogleForm()" ng-init="count=0">
+          {{snapshotCtrl.showform ? "Cancel" : "Declare"}} new snapshot
+        </button>
+        <snapshot-form ng-show="snapshotCtrl.showform">Snapshot form</snapshot-form>
+        <snapshot-list></snapshot-list>
+      </div>
+
+      <div class="main" ng-show="snapshotCtrl.isSelected(2)">
+        About...
+      </div>
 
     </div><!-- /.container -->
 
