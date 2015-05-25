@@ -1,20 +1,15 @@
-
 <table class="table table-hover">
-	<thead><tr><td>id</td><td>dbserver</td><td>dbname</td><td>actions</td></tr></thead>
-	<tbody>
-		<tr ng-repeat="snapshot in snapshotCtrl.snapshots">
-			<td>
-				{{snapshot.id}}
-			</td>
-			<td>
-				{{snapshot.dbserver}}
-			</td>
-			<td>
-				{{snapshot.dbname}}
-		  </td>
-			<td>
-		  	<a href="#" ng-click="snapshotCtrl.delete(snapshot.id)">drop definition</a>
-			</td>
-		</tr>
-	</tbody>
+  <thead><tr><td>id</td><td>dbserver</td><td>dbname</td><td>actions</td></tr></thead>
+  <tbody>
+    <tr ng-repeat="snapshot in snapshotCtrl.snapshots">
+      <td>{{snapshot.id}}</td>
+      <td>{{snapshot.dbserver}}</td>
+      <td>{{snapshot.dbname}}</td>
+      <td>
+        <a href="#" ng-click="snapshotCtrl.delete(snapshot.id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
 </table>
