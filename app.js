@@ -29,7 +29,9 @@
     snapshotC.delete = function(id) {
       $http.delete(snapshotC.snapshots_url + "/" + id + ".json")
         .success(function (data, status, headers, config) {
-          snapshotC.reload();
+          snapshotC.snapshots = snapshotC.snapshots.filter(function (e){
+            return e.id !== id;
+          });
         })
         .error(function(data, status, headers, config) {
           console.log("fail to delete snaphot")
