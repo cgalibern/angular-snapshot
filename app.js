@@ -80,5 +80,11 @@
     }
   });
 
+  app.directive('snapshotNav', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'snapshot-nav.html'
+    }
+  });
 
 })();
