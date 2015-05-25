@@ -5,12 +5,14 @@
     //snapshotC.snapshots_url = "http://localhost:3000/snapshots"
     snapshotC.snapshots_url = "http://192.168.0.16:3000/snapshots"
     snapshotC.snapshots = [];
+    snapshotC.snapshot_size = 0;
     snapshotC.showform = false;
     snapshotC.navtab = 1;
 
     snapshotC.reload = function() {
       $http.get(snapshotC.snapshots_url+".json").success( function(data) {
       		snapshotC.snapshots = data;
+          snapshotC.snapshot_size = snapshotC.snapshots.length;
       	});
     };
 
@@ -20,6 +22,7 @@
       $http.post(snapshotC.snapshots_url + ".json", {dbserver:snapshotC.formDbserver, dbname: snapshotC.formDbname})
         .success(function(data, status, headers, config) {
           snapshotC.snapshots.push(data);
+          snapshotC.snapshot_size++;
           console.log("successfully posted snapshot, id=" + data.id);
           snapshotC.toogleForm();
         })
@@ -34,6 +37,7 @@
           snapshotC.snapshots = snapshotC.snapshots.filter(function (e){
             return e.id !== id;
           });
+          snapshotC.snapshot_size--;
         })
         .error(function(data, status, headers, config) {
           console.log("fail to delete snaphot")
