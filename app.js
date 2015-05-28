@@ -3,7 +3,7 @@
  	app.controller('SnapshotController', [ '$http', function($http) {
     var snapshotC = this;
     //snapshotC.snapshots_url = "http://localhost:3000/snapshots"
-    snapshotC.snapshots_url = "http://192.168.0.16:3000/snapshots"
+    snapshotC.snapshots_url = "http://192.168.0.5:3000/snapshots"
     snapshotC.snapshots = [];
     snapshotC.snapshot_size = 0;
     snapshotC.showform = false;
@@ -40,7 +40,7 @@
           snapshotC.snapshot_size--;
         })
         .error(function(data, status, headers, config) {
-          console.log("fail to delete snaphot")
+          console.log("fail to delete snaphot status:" + status)
         });
     };
 
